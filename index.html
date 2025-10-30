@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anusha S - Data Science Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Anusha S</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li class="dropdown" id="aboutDropdown">
+                    <a href="#about" onclick="toggleDropdown('aboutDropdown')">About <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#education" onclick="closeMobileMenu()">Education</a>
+                        <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+                    </div>
+                </li>
+                <li class="dropdown" id="portfolioDropdown">
+                    <a href="#projects" onclick="toggleDropdown('portfolioDropdown')">Portfolio <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#data-viz" onclick="closeMobileMenu()">3D Analytics</a>
+                        <a href="#game" onclick="closeMobileMenu()">Data Bot Game</a>
+                    </div>
+                </li>
+                <li class="dropdown" id="experienceDropdown">
+                    <a href="#internship" onclick="toggleDropdown('experienceDropdown')">Experience <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#certifications" onclick="closeMobileMenu()">Certifications</a>
+                    </div>
+                </li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Enhanced 3D Background -->
+    <section class="hero" id="home">
+        <div id="threejs-container"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm Anusha S</h1>
+                <h2>Data Science Enthusiast</h2>
+                <p>Passionate MSc Data Science student with a strong foundation in analytics, programming, and machine learning. Eager to transform data into actionable insights.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#data-viz" class="btn btn-outline">Explore 3D Analytics</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/anusha.jpg" alt="Anusha S">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Data Visualization Section -->
+    <section class="data-viz-section" id="data-viz">
+        <div class="container">
+            <div class="section-title">
+                <h2>Interactive 3D Data Analytics</h2>
+                <p>Experience data visualization in three dimensions</p>
+            </div>
+            <div id="data-viz-container">
+                <div class="viz-controls">
+                    <button class="viz-btn active" onclick="switchVisualization('particles')">Particles</button>
+                    <button class="viz-btn" onclick="switchVisualization('bars')">3D Bars</button>
+                    <button class="viz-btn" onclick="switchVisualization('sphere')">Data Sphere</button>
+                    <button class="viz-btn" onclick="switchVisualization('network')">Network</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Enhanced Light Animations -->
+    <section class="about" id="about">
+        <div id="about-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Learn more about my background and what drives me</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="assets/images/anusha2.jpg" alt="About Me">
+                </div>
+                <div class="about-text">
+                    <h3>Data Science Professional</h3>
+                    <p>I'm a passionate MSc Data Science student at Bharathiar University with a strong academic background in Mathematics. My journey in data science began with my fascination for patterns and insights hidden within complex datasets.</p>
+                    <p>I specialize in machine learning, data analysis, and visualization, with hands-on experience in Python, SQL, and various data science tools. My goal is to leverage data to drive informed decision-making and create impactful solutions.</p>
+                    <ul class="info-list">
+                        <li><i class="fas fa-birthday-cake"></i> Born: May 15, 2004</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Location: Palakkad, Kerala</li>
+                        <li><i class="fas fa-envelope"></i> Email: anushameleppura@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> Phone: +91 9847490668</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div id="education-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+                <p>My academic journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>MSc Data Science</h3>
+                        <div class="date">2024 - 2026</div>
+                        <div class="institution">Bharathiar University</div>
+                        <div class="institution">Nehru Arts And Science College</div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>BSc Mathematics</h3>
+                        <div class="date">2021 - 2024</div>
+                        <div class="institution">Calicut University</div>
+                        <div class="institution">Yuvakshetra Institute Of Management Studies, Ezhakkad</div>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>12th Grade</h3>
+                        <div class="date">2019 - 2021</div>
+                        <div class="institution">State Board of Kerala</div>
+                        <div class="institution">C.A Higher Secondary School</div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>10th Grade</h3>
+                        <div class="date">2019</div>
+                        <div class="institution">State Board of Kerala</div>
+                        <div class="institution">C.A High School</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with 3D -->
+    <section class="skills" id="skills">
+        <div id="skills-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+                <p>Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming</h3>
+                    <p>Python, SQL for data manipulation and analysis</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Supervised and unsupervised learning algorithms</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Visualization</h3>
+                    <p>Power BI, Tableau for creating insightful dashboards</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Exploratory Data Analysis</h3>
+                    <p>Uncovering patterns and insights from data</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3>MS Office</h3>
+                    <p>MS Word, MS PowerPoint for documentation</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Management</h3>
+                    <p>Database design and SQL query optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with 3D -->
+    <section class="projects" id="projects">
+        <div id="projects-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+                <p>My recent work and contributions</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Email Spam Detection</h3>
+                        <p>Developed a machine learning model to classify emails as spam or ham using pattern recognition techniques.</p>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Classification</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Analysis Dashboard</h3>
+                        <p>Created an interactive dashboard for visualizing complex datasets and deriving actionable insights.</p>
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">EDA</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Predictive Analytics Model</h3>
+                        <p>Built a predictive model to forecast trends and patterns in time-series data using advanced ML techniques.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Time Series</span>
+                            <span class="tag">Forecasting</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section class="game-section" id="game">
+        <div id="game-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>🤖 Data Bot Treasure Hunt</h2>
+                <p>Help the Data Bot collect data treasures and see his reactions!</p>
+            </div>
+            <div class="game-area">
+                <div class="game-canvas" id="gameCanvas">
+                    <div class="game-score">
+                        Score: <span id="gameScore">0</span>
+                    </div>
+                    <div class="game-timer">
+                        Time: <span id="gameTimer">60</span>s
+                    </div>
+                    <div class="game-character" id="gameCharacter">
+                        <div class="game-character-body">
+                            <div class="character-antenna"></div>
+                            <div class="character-eye left">
+                                <div class="character-pupil"></div>
+                            </div>
+                            <div class="character-eye right">
+                                <div class="character-pupil"></div>
+                            </div>
+                            <div class="character-mouth"></div>
+                        </div>
+                    </div>
+                    <div class="character-bubble" id="characterBubble"></div>
+                </div>
+                <div class="game-instructions">
+                    <h3>🎮 How to Play</h3>
+                    <p>Move your cursor to guide the Data Bot. Click on the Data Bot for fun reactions!</p>
+                    <div class="instructions-grid">
+                        <div class="instruction-item">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Move cursor to control the Data Bot</span>
+                        </div>
+                        <div class="instruction-item">
+                            <i class="fas fa-mouse"></i>
+                            <span>Click Data Bot for reactions</span>
+                        </div>
+                        <div class="instruction-item">
+                            <i class="fas fa-gem"></i>
+                            <span>Collect green gems (+20 points)</span>
+                        </div>
+                        <div class="instruction-item">
+                            <i class="fas fa-coins"></i>
+                            <span>Grab gold coins (+10 points)</span>
+                        </div>
+                        <div class="instruction-item">
+                            <i class="fas fa-star"></i>
+                            <span>Catch purple stars (+30 points)</span>
+                        </div>
+                        <div class="instruction-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Beat the 60-second timer!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section class="internship" id="internship">
+        <div id="internship-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Internship Experience</h2>
+                <p>My professional journey and learning</p>
+            </div>
+            <div class="internship-card">
+                <h3>Machine Learning With Data Science</h3>
+                <div class="company">Location: Kochi</div>
+                <div class="period">Duration: 1 Month</div>
+                <ul>
+                    <li>Gained hands-on experience in data preprocessing and feature engineering</li>
+                    <li>Implemented ML algorithms using Python for real-world classification problems</li>
+                    <li>Collaborated with a team to develop and optimize models</li>
+                    <li>Applied models like Naive Bayes and Logistic Regression</li>
+                    <li>Evaluated model performance using metrics like accuracy and F1-score</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div id="certifications-3d-container"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+                <p>Professional certifications and achievements</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="cert-details">
+                        <h3>Data Analytics</h3>
+                        <p>ICT ACADEMY (YIMS) Plakkad (2023)</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="cert-details">
+                        <h3>Latex</h3>
+                        <p>Yuvakshetra Institute Of Management Studies (2023)</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="cert-details">
+                        <h3>IoT</h3>
+                        <p>NPTEL (2025)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div id="contact-3d-container"></div>
+        <div class="contact-container">
+            <div class="contact-content">
+                <h2>Get In Touch</h2>
+                <p>I'm always open to discussing new opportunities and interesting projects</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>anushameleppura@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9847490668</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Palakkad, Kerala</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Anusha S. All Rights Reserved.</p>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919847490668" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Download CV Button -->
+    <a href="#" class="download-cv" onclick="downloadCV()">
+        <i class="fas fa-download"></i>
+        Download CV
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
